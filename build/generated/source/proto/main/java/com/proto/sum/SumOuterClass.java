@@ -29,6 +29,21 @@ public final class SumOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sum_SumResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sum_PrimeDecomposition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sum_PrimeDecomposition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sum_PrimeDecompositionRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sum_PrimeDecompositionRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sum_PrimeDecompositionResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sum_PrimeDecompositionResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -41,9 +56,15 @@ public final class SumOuterClass {
       "\n\rsum/sum.proto\022\003sum\"6\n\003Sum\022\026\n\016first_ope" +
       "rator\030\001 \001(\005\022\027\n\017second_operator\030\002 \001(\005\"#\n\n" +
       "SumRequest\022\025\n\003sum\030\001 \001(\0132\010.sum.Sum\"\035\n\013Sum" +
-      "Response\022\016\n\006result\030\001 \001(\00528\n\nSumService\022*" +
-      "\n\003Sum\022\017.sum.SumRequest\032\020.sum.SumResponse" +
-      "\"\000B\021\n\rcom.proto.sumP\001b\006proto3"
+      "Response\022\016\n\006result\030\001 \001(\005\"\037\n\022PrimeDecompo" +
+      "sition\022\t\n\001n\030\001 \001(\005\"+\n\031PrimeDecompositionR" +
+      "equest\022\016\n\006number\030\001 \001(\005\",\n\032PrimeDecomposi" +
+      "tionResponse\022\016\n\006result\030\001 \001(\0052\223\001\n\nSumServ" +
+      "ice\022*\n\003Sum\022\017.sum.SumRequest\032\020.sum.SumRes" +
+      "ponse\"\000\022Y\n\022PrimeDecomposition\022\036.sum.Prim" +
+      "eDecompositionRequest\032\037.sum.PrimeDecompo" +
+      "sitionResponse\"\0000\001B\021\n\rcom.proto.sumP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -66,6 +87,24 @@ public final class SumOuterClass {
     internal_static_sum_SumResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sum_SumResponse_descriptor,
+        new java.lang.String[] { "Result", });
+    internal_static_sum_PrimeDecomposition_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_sum_PrimeDecomposition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sum_PrimeDecomposition_descriptor,
+        new java.lang.String[] { "N", });
+    internal_static_sum_PrimeDecompositionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_sum_PrimeDecompositionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sum_PrimeDecompositionRequest_descriptor,
+        new java.lang.String[] { "Number", });
+    internal_static_sum_PrimeDecompositionResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_sum_PrimeDecompositionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sum_PrimeDecompositionResponse_descriptor,
         new java.lang.String[] { "Result", });
   }
 

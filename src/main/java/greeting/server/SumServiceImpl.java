@@ -1,9 +1,6 @@
 package greeting.server;
 
-import com.proto.sum.Sum;
-import com.proto.sum.SumRequest;
-import com.proto.sum.SumResponse;
-import com.proto.sum.SumServiceGrpc;
+import com.proto.sum.*;
 import io.grpc.stub.StreamObserver;
 
 public class SumServiceImpl extends SumServiceGrpc.SumServiceImplBase {
@@ -26,5 +23,24 @@ public class SumServiceImpl extends SumServiceGrpc.SumServiceImplBase {
 
         //complate the call
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public void primeDecomposition(PrimeDecompositionRequest request, StreamObserver<PrimeDecompositionResponse> responseObserver) {
+       int number = request.getNumber();
+       int divisor = 2;
+
+       while (number > 1) {
+           if (number % divisor == 0) {
+               number = number / divisor;
+               responseObserver.onNext(PrimeDecompositionResponse.newBuilder()
+                       .setResult(divisor)
+                       .build());
+           } else {
+               divisor ++;
+           }
+       }
+
+       responseObserver.onCompleted();
     }
 }
