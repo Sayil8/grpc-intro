@@ -31,8 +31,18 @@ message PrimeDecompositionResponse {
   int32 result = 1;
 }
 
+message ComputeAverageRequest {
+  int32 number = 1;
+}
+
+message ComputeAverageResponse {
+  double n = 1;
+}
+
 service SumService {
   rpc Sum(SumRequest) returns (SumResponse) {};
 
   rpc PrimeDecomposition(PrimeDecompositionRequest) returns (stream PrimeDecompositionResponse) {};
+
+  rpc ComputeAverage(stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
 }

@@ -89,6 +89,37 @@ public final class SumServiceGrpc {
     return getPrimeDecompositionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.proto.sum.ComputeAverageRequest,
+      com.proto.sum.ComputeAverageResponse> getComputeAverageMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ComputeAverage",
+      requestType = com.proto.sum.ComputeAverageRequest.class,
+      responseType = com.proto.sum.ComputeAverageResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<com.proto.sum.ComputeAverageRequest,
+      com.proto.sum.ComputeAverageResponse> getComputeAverageMethod() {
+    io.grpc.MethodDescriptor<com.proto.sum.ComputeAverageRequest, com.proto.sum.ComputeAverageResponse> getComputeAverageMethod;
+    if ((getComputeAverageMethod = SumServiceGrpc.getComputeAverageMethod) == null) {
+      synchronized (SumServiceGrpc.class) {
+        if ((getComputeAverageMethod = SumServiceGrpc.getComputeAverageMethod) == null) {
+          SumServiceGrpc.getComputeAverageMethod = getComputeAverageMethod =
+              io.grpc.MethodDescriptor.<com.proto.sum.ComputeAverageRequest, com.proto.sum.ComputeAverageResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ComputeAverage"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.sum.ComputeAverageRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.sum.ComputeAverageResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new SumServiceMethodDescriptorSupplier("ComputeAverage"))
+              .build();
+        }
+      }
+    }
+    return getComputeAverageMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -130,6 +161,13 @@ public final class SumServiceGrpc {
       asyncUnimplementedUnaryCall(getPrimeDecompositionMethod(), responseObserver);
     }
 
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.proto.sum.ComputeAverageRequest> computeAverage(
+        io.grpc.stub.StreamObserver<com.proto.sum.ComputeAverageResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getComputeAverageMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -146,6 +184,13 @@ public final class SumServiceGrpc {
                 com.proto.sum.PrimeDecompositionRequest,
                 com.proto.sum.PrimeDecompositionResponse>(
                   this, METHODID_PRIME_DECOMPOSITION)))
+          .addMethod(
+            getComputeAverageMethod(),
+            asyncClientStreamingCall(
+              new MethodHandlers<
+                com.proto.sum.ComputeAverageRequest,
+                com.proto.sum.ComputeAverageResponse>(
+                  this, METHODID_COMPUTE_AVERAGE)))
           .build();
     }
   }
@@ -182,6 +227,14 @@ public final class SumServiceGrpc {
         io.grpc.stub.StreamObserver<com.proto.sum.PrimeDecompositionResponse> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getPrimeDecompositionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.proto.sum.ComputeAverageRequest> computeAverage(
+        io.grpc.stub.StreamObserver<com.proto.sum.ComputeAverageResponse> responseObserver) {
+      return asyncClientStreamingCall(
+          getChannel().newCall(getComputeAverageMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -248,6 +301,7 @@ public final class SumServiceGrpc {
 
   private static final int METHODID_SUM = 0;
   private static final int METHODID_PRIME_DECOMPOSITION = 1;
+  private static final int METHODID_COMPUTE_AVERAGE = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -284,6 +338,9 @@ public final class SumServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_COMPUTE_AVERAGE:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.computeAverage(
+              (io.grpc.stub.StreamObserver<com.proto.sum.ComputeAverageResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -337,6 +394,7 @@ public final class SumServiceGrpc {
               .setSchemaDescriptor(new SumServiceFileDescriptorSupplier())
               .addMethod(getSumMethod())
               .addMethod(getPrimeDecompositionMethod())
+              .addMethod(getComputeAverageMethod())
               .build();
         }
       }

@@ -47,4 +47,37 @@ public class GreetServiceImpl extends GreetServiceGrpc.GreetServiceImplBase {
             responseObserver.onCompleted();
         }
     }
+
+    @Override
+    public StreamObserver<LongGreetRequest> longGreet(StreamObserver<LongGreetResponse> responseObserver) {
+
+        return new StreamObserver<LongGreetRequest>() {
+
+            String result = "";
+
+
+
+            @Override
+            public void onNext(LongGreetRequest value) {
+                // clients send a message
+                result += "Hello" + value.getGreeting().getFirstName();
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                //client send an error
+            }
+
+            @Override
+            public void onCompleted() {
+                //client is done
+                responseObserver.onNext(
+                        LongGreetResponse.newBuilder()
+                                .setResult(result)
+                                .build()
+                );
+                responseObserver.onCompleted();
+            }
+        };
+    }
 }
