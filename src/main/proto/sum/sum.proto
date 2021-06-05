@@ -54,6 +54,6 @@ service SumService {
 
   rpc ComputeAverage(stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
 
-  rpc FindMaximum(stream FindMaximumRequest) returns (FindMaximumResponse) {};
+  rpc FindMaximum(stream FindMaximumRequest) returns (stream FindMaximumResponse) {};
 }
 
