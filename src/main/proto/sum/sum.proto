@@ -39,10 +39,21 @@ message ComputeAverageResponse {
   double n = 1;
 }
 
+message FindMaximumResponse {
+  int32 number = 1;
+}
+
+message FindMaximumRequest {
+  int32 number = 1;
+}
+
 service SumService {
   rpc Sum(SumRequest) returns (SumResponse) {};
 
   rpc PrimeDecomposition(PrimeDecompositionRequest) returns (stream PrimeDecompositionResponse) {};
 
   rpc ComputeAverage(stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
+
+  rpc FindMaximum(stream FindMaximumRequest) returns (FindMaximumResponse) {};
 }
+
