@@ -1,4 +1,4 @@
-package greeting.server;
+package sum.server;
 
 import com.proto.sum.*;
 import io.grpc.stub.StreamObserver;

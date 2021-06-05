@@ -1,4 +1,4 @@
-package greeting.client;
+package sum.client;
 
 import com.proto.sum.*;
 import io.grpc.ManagedChannel;

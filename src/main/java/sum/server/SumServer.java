@@ -1,11 +1,11 @@
-package greeting.server;
+package sum.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
 import java.io.IOException;
 
-public class GreetingServerSum {
+public class SumServer {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Hello grpc");
         Server server = ServerBuilder.forPort(50051)
